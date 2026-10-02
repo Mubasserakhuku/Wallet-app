@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>পে-ওয়ালেট</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<div class="toast" id="toast"></div>
+
+<!-- HOME -->
+<section class="view on" id="v-home">
+  <div class="top">
+    <div class="av">র</div>
+    <div class="who"><b id="uname">রাহিম আহমেদ</b><span>01XXXXXXXXX</span></div>
+    <button class="bal" id="balBtn">ব্যালেন্স</button>
+    <button class="bell" id="bell" aria-label="নোটিফিকেশন">🔔</button>
+  </div>
+  <div id="note" style="display:none;background:#fff3c4;color:#5a4300;padding:10px 16px;font-size:14px"></div>
+  <div class="grid" id="g1"></div>
+  <div class="ban" id="ban"></div>
+  <div class="dots" id="dots"></div>
+  <div class="sec">পেমেন্ট সার্ভিস</div>
+  <div class="grid" id="g2"></div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="view" id="v-acc">
+  <h2 class="pg">অ্যাকাউন্ট</h2>
+  <div class="card"><small style="color:var(--mute)">মোট ব্যালেন্স</small><div class="big" id="accBal">৳ ১২,৫০০</div>
+    <button class="chip on" data-act="Add Money">অ্যাড মানি</button><button class="chip" data-act="Cash Out">ক্যাশ আউট</button></div>
+  <div class="card">
+    <div class="row" data-toast="প্রোফাইল এডিট শিগগিরই আসছে"><span>👤</span><div class="g">প্রোফাইল<small>নাম, ফোন, ইমেইল</small></div>›</div>
+    <div class="row" data-toast="লিমিট: দৈনিক ৳ ৫০,০০০"><span>📈</span><div class="g">লেনদেন সীমা<small>দৈনিক ও মাসিক</small></div>›</div>
+    <div class="row" data-toast="লিংকড কার্ড নেই"><span>💳</span><div class="g">কার্ড ও ব্যাংক<small>লিংক করুন</small></div>›</div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="view" id="v-his">
+  <h2 class="pg">হিস্টরি</h2>
+  <div class="pad" style="padding-bottom:0"><button class="chip on" data-f="all">সব</button><button class="chip" data-f="in">ইনকাম</button><button class="chip" data-f="out">খরচ</button></div>
+  <div class="card" id="hlist"></div>
+</section>
+
+<!-- MORE -->
+<section class="view" id="v-more">
+  <h2 class="pg">আরো</h2>
+  <div class="card">
+    <div class="row" id="admRow" style="display:none"><span>🛠️</span><div class="g">অ্যাডমিন প্যানেল<small>সব গ্রাহক ও লেনদেন নিয়ন্ত্রণ</small></div>›</div>
+    <div class="row" id="themeRow"><span>🌙</span><div class="g">ডার্ক মোড<small id="themeState">বন্ধ</small></div>›</div>
+    <div class="row" data-toast="ভাষা: বাংলা"><span>🌐</span><div class="g">ভাষা<small>বাংলা</small></div>›</div>
+    <div class="row" data-toast="সিকিউরিটি: PIN সক্রিয়"><span>🔒</span><div class="g">সিকিউরিটি<small>PIN, বায়োমেট্রিক</small></div>›</div>
+    <div class="row" data-toast="হেল্পলাইন: 16XXX"><span>🎧</span><div class="g">সাপোর্ট<small>২৪/৭ হেল্পলাইন</small></div>›</div>
+    <div class="row" data-toast="লগআউট ডেমোতে বন্ধ"><span>🚪</span><div class="g">লগআউট</div></div>
+  </div>
+</section>
+
+<nav class="nav">
+  <button class="t on" data-tab="home"><span>🏠</span>হোম</button>
+  <button class="t" data-tab="acc"><span>👛</span>অ্যাকাউন্ট</button>
+  <div><div class="qr" id="qrBtn" role="button" aria-label="QR স্ক্যান">▦</div></div>
+  <button class="t" data-tab="his"><span>🕘</span>হিস্টরি</button>
+  <button class="t" data-tab="more"><span>⋯</span>আরো</button>
+</nav>
+
+<div id="adm"><div class="aw">
+  <div class="ah"><h2 style="font-size:22px">🛠️ অ্যাডমিন প্যানেল</h2><button class="mini" data-a="x">বন্ধ করুন</button></div>
+  <div class="st" id="admSt"></div>
+  <div style="margin:14px 0 4px"><button class="chip on" data-a="tab" data-v="u">গ্রাহক</button><button class="chip" data-a="tab" data-v="t">লেনদেন</button><button class="chip" data-a="tab" data-v="n">ঘোষণা</button></div>
+  <div class="card" style="margin:8px 0" id="admBody"></div>
+</div></div>
+<div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
