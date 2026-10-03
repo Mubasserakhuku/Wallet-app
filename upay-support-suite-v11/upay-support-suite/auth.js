@@ -12,7 +12,7 @@ window.authGate=function(start){
  const sess=LS.g('upay_sess'),tok=LS.g('upay_tok');
  if(sess&&(!API.on||tok)){if(API.on){window.UPAY_TOKEN=tok;window.UPAY_UID=sess}else LS.s('upay_uid',sess);start();return}
  const A=$('#auth');A.classList.add('on');
- const head=`<div class="ah"><b>upay</b><small>${L('আপনার ডিজিটাল ওয়ালেট','Your digital wallet')}</small></div>`;
+ const head=`<div class="ah"><b>upay 2.0</b><small>${L('আপনার ডিজিটাল ওয়ালেট','Your digital wallet')}</small></div>`;
  const err=m=>{$('#aerr').textContent=m};
  const emsg=e=>e&&e.code==='pin_locked'?L('অনেকবার ভুল হয়েছে, কিছুক্ষণ পরে চেষ্টা করুন','Too many wrong tries, try again later'):e&&e.code==='pin_wrong'?L('নম্বর বা পিন ভুল','Wrong number or PIN'):e&&e.code==='conflict'?L('এই নম্বর বা NID দিয়ে অ্যাকাউন্ট আছে','An account with this number or NID already exists'):(e&&e.message)||L('সমস্যা হয়েছে, আবার চেষ্টা করুন','Something went wrong, try again');
  const pad=(ins,ok)=>{const mx=i=>i.maxLength>0?i.maxLength:4;let cur=ins[0];const mark=()=>ins.forEach(i=>i.classList.toggle('kpa',i===cur));
