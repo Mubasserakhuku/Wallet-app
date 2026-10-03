@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>upay 2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#ffd600"><link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<div class="toast" id="toast"></div>
+
+<!-- HOME -->
+<section class="view on" id="v-home">
+  <div class="top">
+    <div class="av">র</div>
+    <div class="who"><b id="uname">রাহিম আহমেদ</b><span>01XXXXXXXXX</span></div>
+    <button class="bal" id="balBtn">ব্যালেন্স</button>
+    <button class="bell" id="chatBtn" aria-label="কাস্টমার সার্ভিস" style="position:relative">💬<i id="chDot" style="display:none;position:absolute;top:2px;right:0;width:10px;height:10px;border-radius:50%;background:#d23a3a"></i></button>
+    <button class="bell" id="bell" aria-label="নোটিফিকেশন">🔔</button>
+  </div>
+  <div id="note" style="display:none;background:#fff3c4;color:#5a4300;padding:10px 16px;font-size:14px"></div>
+  <div class="grid" id="g1"></div>
+  <div class="ban" id="ban"></div>
+  <div class="dots" id="dots"></div>
+  <div class="sec">পেমেন্ট সার্ভিস</div>
+  <div class="grid" id="g2"></div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="view" id="v-acc">
+  <h2 class="pg">অ্যাকাউন্ট</h2>
+  <div id="aTop"></div>
+  <div class="card"><button class="chip on" data-act="Add Money">অ্যাড মানি</button><button class="chip" data-act="Cash Out">ক্যাশ আউট</button></div>
+  <div class="card">
+    <div class="row" id="profRow"><span>👤</span><div class="g">প্রোফাইল<small>ছবি, নাম, ফোন</small></div>›</div>
+    <div class="row" id="limRow"><span>📈</span><div class="g">লেনদেন সীমা<small>দৈনিক ও মাসিক</small></div>›</div>
+    <div class="row" data-toast="লিংকড কার্ড নেই"><span>💳</span><div class="g">কার্ড ও ব্যাংক<small>লিংক করুন</small></div>›</div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="view" id="v-his">
+  <h2 class="pg">হিস্টরি</h2>
+  <div class="pad" style="padding-bottom:0"><button class="chip on" data-f="all">সব</button><button class="chip" data-f="in">ইনকাম</button><button class="chip" data-f="out">খরচ</button></div>
+  <div class="pad" style="padding-bottom:0"><button class="chip" id="hcsv">⬇ CSV</button><button class="chip" id="hprint">🖨 PDF / Print</button></div>
+  <div class="pad" style="padding-bottom:0"><input id="hq" placeholder="ফোন, নাম বা ট্রানজেকশন আইডি দিয়ে খুঁজুন"></div>
+  <div class="card" id="msum"></div>
+  <div class="card" id="hlist"></div>
+</section>
+
+<!-- MORE -->
+<section class="view" id="v-more">
+  <div class="mhead">
+    <h2>আমার upay 2.0</h2>
+    <div class="mprof">
+      <div class="pav" id="pav">র</div>
+      <div class="pinfo"><b id="uname2">রাহিম আহমেদ</b><span>01XXXXXXXXX</span><i class="abadge" id="abadge"></i></div>
+      <button class="pen" id="penBtn" aria-label="প্রোফাইল এডিট">✎</button>
+    </div>
+  </div>
+
+  <div class="msec">সাধারণ</div>
+  <div class="mlist">
+    <div class="row" id="langRow"><span class="mi">🌐</span><div class="g">ভাষা</div><em id="langVal" translate="no">বাংলা</em></div>
+    <div class="row" id="gRow"><span class="mi">👨‍👩‍👧</span><div class="g">অভিভাবক লিংক<small>অভিভাবক থেকে টাকা, স্টেটমেন্ট শেয়ার</small></div><i class="chev">›</i></div>
+    <div class="row" id="planRow" style="display:none"><span class="mi">🎓</span><div class="g">স্টুডেন্ট প্ল্যান<small>বাজেট ক্যাটাগরি, অটো ট্রান্সফার</small></div><i class="chev">›</i></div>
+    <div class="row" id="demoRow"><span class="mi">🧪</span><div class="g">ডেমো টুলস<small>ইউজার বদলান, স্টুডেন্ট ভেরিফাই</small></div><i class="chev">›</i></div>
+    <div class="row" id="acctRow"><span class="mi">👤</span><div class="g">অ্যাকাউন্টের ধরন</div><em id="acctVal">ব্যক্তিগত</em></div>
+    <div class="row" id="themeRow"><span class="mi">🌙</span><div class="g">ডার্ক মোড<small id="themeState">বন্ধ</small></div><i class="chev">›</i></div>
+    <div class="row" id="pinRow"><span class="mi">🔒</span><div class="g">পিন পরিবর্তন</div><i class="chev">›</i></div>
+    <div class="row" id="secRow"><span class="mi">🛡️</span><div class="g">সিকিউরিটি<small>PIN, বায়োমেট্রিক</small></div><i class="chev">›</i></div>
+    <div class="row" data-toast="মোবাইল অপারেটর পরিবর্তন শিগগিরই আসছে"><span class="mi">📡</span><div class="g">মোবাইল অপারেটর পরিবর্তন</div><i class="chev">›</i></div>
+    <div class="row" data-toast="কেওয়াইসি পুনরায় জমা দেওয়া শিগগিরই আসছে"><span class="mi">📋</span><div class="g">কেওয়াইসি পুনরায় জমা দিন</div><i class="chev">›</i></div>
+    <div class="row" data-toast="অনুমোদিত মার্চেন্ট তালিকা শিগগিরই আসছে"><span class="mi">🏪</span><div class="g">অনুমোদিত মার্চেন্ট</div><i class="chev">›</i></div>
+    <div class="row" id="supRow"><span class="mi">🎧</span><div class="g">কাস্টমার সার্ভিস<small>লাইভ চ্যাট, ইমেইল, অভিযোগ</small></div><i class="chev">›</i></div>
+  </div>
+
+  <div class="msec">আরও তথ্য</div>
+  <div class="mlist">
+    <div class="row" data-toast="প্রাইভেসি পলিসি শিগগিরই আসছে"><span class="mi">✅</span><div class="g">প্রাইভেসি পলিসি</div><i class="chev">›</i></div>
+    <div class="row" data-toast="সাধারণ জিজ্ঞাসা শিগগিরই আসছে"><span class="mi">❓</span><div class="g">সাধারণ জিজ্ঞাসা</div><i class="chev">›</i></div>
+    <div class="row" data-toast="স্টোর সন্ধান শিগগিরই আসছে"><span class="mi">📍</span><div class="g">স্টোর সন্ধান</div><i class="chev">›</i></div>
+    <div class="row" data-toast="upay 2.0 সংস্করণ ডেমো ১.০"><span class="mi">ℹ️</span><div class="g">অ্যাবাউট</div><i class="chev">›</i></div>
+    <a class="row" href="https://www.facebook.com/upaybangladesh" target="_blank" rel="noopener noreferrer"><span class="mi fb">f</span><div class="g">upay 2.0 পেইজ</div><i class="chev">›</i></a>
+    <a class="row" href="https://www.upaybd.com" target="_blank" rel="noopener noreferrer"><span class="mi">🌍</span><div class="g">ওয়েবসাইট</div><i class="chev">›</i></a>
+    <div class="row" id="signRow"><span class="mi">🚪</span><div class="g">সাইন আউট</div><i class="chev">›</i></div>
+  </div>
+</section>
+
+<div id="auth"></div>
+<div id="pgx"><div class="pgh"><button id="pgBack" aria-label="Back">←</button><b id="pgT"></b></div><div class="pgb" id="pgB"></div></div>
+<div id="undo" style="display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:84px;width:calc(100% - 24px);max-width:456px;z-index:8;background:#102a54;color:#fff;border-radius:12px;padding:10px 14px;font-size:14px;align-items:center;gap:10px"><span id="undoT" style="flex:1"></span><button class="mini" id="undoB">বাতিল করুন</button></div>
+<nav class="nav">
+  <button class="t on" data-tab="home"><span>🏠</span>হোম</button>
+  <button class="t" data-tab="acc"><span>👛</span>অ্যাকাউন্ট</button>
+  <div><div class="qr" id="qrBtn" role="button" aria-label="QR স্ক্যান">▦</div></div>
+  <button class="t" data-tab="his"><span>🕘</span>হিস্টরি</button>
+  <button class="t" data-tab="more"><span>⋯</span>আরো</button>
+</nav>
+
+<div id="cs"><div class="chh"><button class="mini" id="csBack">‹ ফিরুন</button><b id="csTitle">কাস্টমার সার্ভিস</b><span style="width:64px"></span></div><div class="csb" id="csBody"></div></div>
+<div id="chat"><div class="chh"><button class="mini" id="chBack">‹ ফিরুন</button><b>সাপোর্ট চ্যাট</b><span style="width:64px"></span></div><div id="chMsgs"></div><div class="chf"><input id="chIn" placeholder="আপনার সমস্যা লিখুন…" autocomplete="off" aria-label="বার্তা"><button class="btn" id="chSend" style="width:auto;padding:0 18px">পাঠান</button></div></div>
+<div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+</div>
+
+<script src="core.js"></script>
+<script src="ai.js"></script>
+<script src="config.js"></script>
+<script src="db.js"></script>
+<script src="api.js"></script>
+<script src="auth.js"></script>
+<script src="customer.js"></script>
+<script src="app.js"></script>
+<script src="extras.js"></script>
+</body>
+</html>
